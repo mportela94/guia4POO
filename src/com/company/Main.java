@@ -15,6 +15,7 @@ public class Main {
 
         VideoClub biblioteca = new VideoClub();
 
+        //Inicializacion de Peliculas
         Movie pelicula1 = new Movie("Interestelar", "14/04/2014", 124, "Aventura","PG-13", "EEUU", "Viajes intergalacticos y demas", 5);
         Movie pelicula2 = new Movie("Big Lebowski", "07/06/1982", 110, "Comedia","PG", "EEUU", "Algo pasa y se vuelven todos locos", 3);
         Movie pelicula3 = new Movie("El Conjuro", "27/02/2012", 94, "Terror","R", "EEUU", "Espiritus y esas cosas de miedo", 2);
@@ -26,6 +27,7 @@ public class Main {
         Movie pelicula9 = new Movie("Sinister", "04/01/2015", 89, "Terror","R", "EEUU", "Exclente para una noche de tormenta", 4);
         Movie pelicula10 = new Movie("The Last Dance", "20/04/2020", 157, "Documental","G", "EEUU", "Michael Jordan.", 3);
 
+        //Agrego Peliculas al ArrayList que contiene todas las Peliculas del VC
         biblioteca.catalogoDePeliculas.add(pelicula1);
         biblioteca.catalogoDePeliculas.add(pelicula2);
         biblioteca.catalogoDePeliculas.add(pelicula3);
@@ -37,18 +39,21 @@ public class Main {
         biblioteca.catalogoDePeliculas.add(pelicula9);
         biblioteca.catalogoDePeliculas.add(pelicula10);
 
+        //Inicializo Clientes
         Client cliente1=new Client("Matias Portela", 4957648, "25 de Mayo 2575");
         Client cliente2=new Client("Spiderman", 11584765, "Colon y la Costa");
         Client cliente3=new Client("John Bon Jovi", 15887849, "P. Ramos 541 5");
         Client cliente4=new Client("Mauricio Fernandez", 48547854, "Casa Bordo");
         Client cliente5=new Client("Ronald McDonalds", 56878855, "Jujuy 6949");
 
+        //Agrego Clientes al Listado de Clientes del VC
         biblioteca.listadoDeClientes.add(cliente1);
         biblioteca.listadoDeClientes.add(cliente2);
         biblioteca.listadoDeClientes.add(cliente3);
         biblioteca.listadoDeClientes.add(cliente4);
         biblioteca.listadoDeClientes.add(cliente5);
 
+        //Inicializo Alquileres hecho
         Alquiler alquiler1= new Alquiler(cliente1, pelicula8, "14/04/2020", "21/04/2020");
         Alquiler alquiler2= new Alquiler(cliente3, pelicula1, "15/04/2020", "22/04/2020");
         Alquiler alquiler3= new Alquiler(cliente1, pelicula9, "16/04/2020", "23/04/2020");
@@ -56,6 +61,7 @@ public class Main {
         Alquiler alquiler5= new Alquiler(cliente4, pelicula10, "21/04/2020", "28/04/2020");
         Alquiler alquiler6= new Alquiler(cliente1, pelicula8, "22/04/2020", "29/04/2020");
 
+        //Agrego los alquileres al array de Alquileres de cada Cliente
         cliente1.setPeliculasRetiradas(alquiler1);
         cliente1.setPeliculasRetiradas(alquiler3);
         cliente3.setPeliculasRetiradas(alquiler2);
@@ -63,6 +69,7 @@ public class Main {
         cliente4.setPeliculasRetiradas(alquiler5);
         cliente1.setPeliculasRetiradas(alquiler6);
 
+        //Agrego los Alquileres al Historial de Alquileres del VC
         biblioteca.historialDePedidos.add(alquiler1);
         biblioteca.historialDePedidos.add(alquiler2);
         biblioteca.historialDePedidos.add(alquiler3);
@@ -70,13 +77,21 @@ public class Main {
         biblioteca.historialDePedidos.add(alquiler5);
         biblioteca.historialDePedidos.add(alquiler6);
 
+        //Incremento la cantidad de alquileres que tuvo cada pelicula
         biblioteca.catalogoDePeliculas.get(7).setCantidadDeRetiros(3);
         biblioteca.catalogoDePeliculas.get(0).setCantidadDeRetiros(1);
         biblioteca.catalogoDePeliculas.get(8).setCantidadDeRetiros(1);
         biblioteca.catalogoDePeliculas.get(9).setCantidadDeRetiros(1);
+        //Decremento el stock actual de Peliculas (estan alquiladas)
+        biblioteca.catalogoDePeliculas.get(7).setStock(biblioteca.catalogoDePeliculas.get(7).getStock()-3);
+        biblioteca.catalogoDePeliculas.get(0).setStock(biblioteca.catalogoDePeliculas.get(7).getStock()-1);
+        biblioteca.catalogoDePeliculas.get(8).setStock(biblioteca.catalogoDePeliculas.get(7).getStock()-1);
+        biblioteca.catalogoDePeliculas.get(9).setStock(biblioteca.catalogoDePeliculas.get(7).getStock()-1);
+        //Me devolvieron las peliculas e incremento el stock actual
         biblioteca.historialDePedidos.get(0).setPeliculaDevuelta(true);
         biblioteca.historialDePedidos.get(1).setPeliculaDevuelta(true);
-
+        biblioteca.catalogoDePeliculas.get(7).setStock(biblioteca.catalogoDePeliculas.get(7).getStock()+1);
+        biblioteca.catalogoDePeliculas.get(0).setStock(biblioteca.catalogoDePeliculas.get(7).getStock()+1);
 
         Scanner scanner = new Scanner(System.in);
         int opcionSwitch;

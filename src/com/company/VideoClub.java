@@ -83,7 +83,7 @@ public class VideoClub {
 
         for (int i=0; i< historialDePedidos.size(); i++){
             if (historialDePedidos.get(i).getPeliculaDevuelta()==false)
-                alquileresVigentes.add(historialDePedidos.get(i));
+                alquileresVigentes.add(historialDePedidos.get(i));  //si la pelicula no fue devuelta (false) lo agrega a List alquileresVigentes
         }
         return alquileresVigentes;
     }
@@ -92,7 +92,7 @@ public class VideoClub {
         List <Alquiler> devolucionesDelDia =  new ArrayList<>();
 
         for (int i=0; i< historialDePedidos.size(); i++){
-            if (historialDePedidos.get(i).getFechaDeDevolucion().equals(fecha))
+            if (historialDePedidos.get(i).getFechaDeDevolucion().equals(fecha)) //si la fecha de devolucion es igual a la fecha buscada agrega el Alquiler a la Lista devolucionesDelDia
                 devolucionesDelDia.add(historialDePedidos.get(i));
         }
 
