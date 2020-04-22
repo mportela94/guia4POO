@@ -13,7 +13,7 @@ public class Client extends VideoClub {
     protected String nombre;
     protected int telefono;
     protected String direccion;
-    private List <Alquiler> peliculasRetiradas;
+    protected List <Alquiler> peliculasRetiradas;
 
     public Client (){
         this.nombre=null;
@@ -55,6 +55,10 @@ public class Client extends VideoClub {
 
     public void setPeliculasRetiradas (Alquiler peliculaAlquilada){
         peliculasRetiradas.add(peliculaAlquilada);
+    }
+
+    public List getClientMovieList(){
+        return peliculasRetiradas;
     }
 
     @Override

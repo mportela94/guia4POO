@@ -2,6 +2,8 @@ package com.company.pelicula;
 
 import com.company.VideoClub;
 
+import java.util.List;
+
 public class Movie extends VideoClub {
 
     private String titulo;
@@ -109,8 +111,6 @@ public class Movie extends VideoClub {
     public int getCantidadDeRetiros(){
         return cantidadDeRetiros;
     }
-
-
 
 
     @Override

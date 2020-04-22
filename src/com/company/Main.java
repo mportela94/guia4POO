@@ -55,11 +55,11 @@ public class Main {
 
         //Inicializo Alquileres hecho
         Alquiler alquiler1= new Alquiler(cliente1, pelicula8, "14/04/2020", "21/04/2020");
-        Alquiler alquiler2= new Alquiler(cliente3, pelicula1, "15/04/2020", "22/04/2020");
+        Alquiler alquiler2= new Alquiler(cliente3, pelicula8, "15/04/2020", "22/04/2020");
         Alquiler alquiler3= new Alquiler(cliente1, pelicula9, "16/04/2020", "23/04/2020");
         Alquiler alquiler4= new Alquiler(cliente2, pelicula8, "20/04/2020", "27/04/2020");
         Alquiler alquiler5= new Alquiler(cliente4, pelicula10, "21/04/2020", "28/04/2020");
-        Alquiler alquiler6= new Alquiler(cliente1, pelicula8, "22/04/2020", "29/04/2020");
+        Alquiler alquiler6= new Alquiler(cliente1, pelicula1, "22/04/2020", "29/04/2020");
 
         //Agrego los alquileres al array de Alquileres de cada Cliente
         cliente1.setPeliculasRetiradas(alquiler1);
@@ -136,11 +136,27 @@ public class Main {
                 break;
 
             case 3:
+                Client clientToSearch = new Client();
+                System.out.println("Ingrese el Nombre del Cliente: ");
+                wordToSearch=scannerSwitch.nextLine();
 
+                clientToSearch=biblioteca.buscarCliente(wordToSearch);
+
+                if (clientToSearch ==  null){
+                    System.out.println("No se encontro al cliente");
+                }else {
+                    List alquileresCliente = new ArrayList();
+                    alquileresCliente = clientToSearch.getClientMovieList();
+
+                    alquileresCliente.stream()
+                            .forEach(System.out::println);
+                }
                 break;
 
             case 4:
-
+                biblioteca.catalogoDePeliculas.stream()
+                        .sorted(Comparator.comparingInt(Movie::getCantidadDeRetiros).reversed())
+                        .forEach(System.out::println);
                 break;
 
             case 5:
@@ -163,6 +179,15 @@ public class Main {
                 break;
 
             case 6:
+                Movie pelicula= new Movie();
+                System.out.println("\nIngrese el Titulo: ");
+                wordToSearch=scannerSwitch.nextLine();
+
+                pelicula=biblioteca.getPelicula(wordToSearch);
+
+                System.out.println("\nDescripcion de " + wordToSearch + ":");
+                System.out.println(pelicula.getDescripcion());
+
 
                 break;
 

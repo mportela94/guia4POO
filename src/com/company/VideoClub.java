@@ -30,6 +30,18 @@ public class VideoClub {
         }
     }
 
+    public Movie getPelicula (String peliculaBuscada){
+        Movie pelicula= new Movie();
+
+        for (int i=0; i<catalogoDePeliculas.size();i++){
+            if (catalogoDePeliculas.get(i).getTitulo().equals(peliculaBuscada)){
+                pelicula=catalogoDePeliculas.get(i);
+            }
+        }
+        return pelicula;
+
+    }
+
     public int verificarPelicula(String peliculaBuscada){
         int posicionPelicula=-1;
         for(int i=0; i<catalogoDePeliculas.size(); i++) {
@@ -54,7 +66,15 @@ public class VideoClub {
 
     //Metodos manejo de Clientes
 
-    public void verAlquileresDeClientes (){
+    public Client buscarCliente (String nombre){
+        Client cliente = null;
+
+        for (int i=0; i<listadoDeClientes.size();i++){
+            if (listadoDeClientes.get(i).getNombre().equals(nombre))
+                cliente=listadoDeClientes.get(i);
+        }
+
+        return cliente;
 
     }
 
